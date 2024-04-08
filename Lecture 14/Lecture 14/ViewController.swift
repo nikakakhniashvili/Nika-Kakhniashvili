@@ -16,11 +16,12 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
+        
+//        MARK: - Stackview for titleLabel and descriptionLabel
         
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -47,7 +48,7 @@ class ViewController: UIViewController {
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        
+//        MARK: - Constraints for loginLabel
         
         let loginLabel = UILabel()
         loginLabel.text = "ავტორიზაცია"
@@ -57,7 +58,7 @@ class ViewController: UIViewController {
         loginLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 17).isActive = true
         loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        
+//        MARK: - Blue line
         
         let lineView = UIView()
         lineView.backgroundColor = UIColor.systemBlue
@@ -69,7 +70,7 @@ class ViewController: UIViewController {
         lineView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 15).isActive = true
         lineView.heightAnchor.constraint(equalToConstant: 3).isActive = true
         
-        
+//        MARK: - Stackview for fields
         
         let stackView2 = UIStackView()
         stackView2.axis = .vertical
@@ -124,7 +125,7 @@ class ViewController: UIViewController {
         stackView2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         stackView2.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 32).isActive = true
         
-        
+//        MARK: - Stackview for gray line
         
         let stackView3 = UIStackView()
         stackView3.axis = .horizontal
@@ -162,7 +163,7 @@ class ViewController: UIViewController {
         
         stackView3.alignment = .center
         
-        
+//        MARK: - Stackview for login buttons
         
         let stackView4 = UIStackView()
         stackView4.axis = .vertical
