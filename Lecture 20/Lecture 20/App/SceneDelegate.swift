@@ -2,8 +2,6 @@
 //  SceneDelegate.swift
 //  Lecture 20
 //
-//  Created by Nika Kakhniashvili on 22.04.24.
-//
 
 import UIKit
 
@@ -15,7 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = ViewController()
+        
+        // Create an instance of UINavigationController with your root view controller
+        let navigationController = UINavigationController(rootViewController: ViewController())
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
     

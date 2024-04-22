@@ -2,8 +2,7 @@
 //  CountryModel.swift
 //  Lecture 20
 //
-//  Created by Nika Kakhniashvili on 22.04.24.
-//
+
 
 import UIKit
 
