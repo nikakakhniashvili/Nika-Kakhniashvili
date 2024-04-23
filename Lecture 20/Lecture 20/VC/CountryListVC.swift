@@ -77,11 +77,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let imageData = try? Data(contentsOf: flagURL) {
                     if let image = UIImage(data: imageData) {
                         let resizedImage = self.resizeImage(image: image, targetSize: CGSize(width: 40, height: 30))
-                        DispatchQueue.main.async {
-                            if let currentIndexPath = tableView.indexPath(for: cell), currentIndexPath.section == indexPath.section {
-                                cell.imageView?.image = resizedImage
-                                cell.setNeedsLayout()
+                        DispatchQueue.main.async { [weak cell] in
+                            guard let cell = cell, let currentIndexPath = tableView.indexPath(for: cell), currentIndexPath.section == indexPath.section else {
+                                return
                             }
+                            cell.imageView?.image = resizedImage
+                            cell.setNeedsLayout()
                         }
                     }
                 }
@@ -102,6 +103,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
+    
     
     // MARK: - UITableViewDelegate
     

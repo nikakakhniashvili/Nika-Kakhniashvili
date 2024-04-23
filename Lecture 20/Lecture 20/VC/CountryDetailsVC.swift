@@ -12,12 +12,16 @@ class CountryDetailViewController: UIViewController {
     var flagContainerView: UIView!
     var flagImageView: UIImageView!
     var contentView: UIView!
+    var aboutFlagLabel: UILabel!
+    var flagInfoLabel: UILabel!
+    var grayLineView: UIView!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupFlag()
+        setupFlagInfo()
         
         // Set the navigation title to the country name
         navigationItem.title = country?.name.common
@@ -41,7 +45,7 @@ class CountryDetailViewController: UIViewController {
             flagContainerView.heightAnchor.constraint(equalToConstant: 190)
         ])
         
-        // Apply dropshadow to the container view
+        // Apply drop shadow to the container view
         flagContainerView.layer.shadowColor = UIColor.black.cgColor
         flagContainerView.layer.shadowOpacity = 0.5
         flagContainerView.layer.shadowRadius = 5
@@ -63,6 +67,46 @@ class CountryDetailViewController: UIViewController {
             flagImageView.leadingAnchor.constraint(equalTo: flagContainerView.leadingAnchor),
             flagImageView.trailingAnchor.constraint(equalTo: flagContainerView.trailingAnchor),
             flagImageView.bottomAnchor.constraint(equalTo: flagContainerView.bottomAnchor)
+        ])
+        
+        // Add label for "About the flag"
+        aboutFlagLabel = UILabel()
+        aboutFlagLabel.translatesAutoresizingMaskIntoConstraints = false
+        aboutFlagLabel.text = "About the flag:"
+        aboutFlagLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        view.addSubview(aboutFlagLabel)
+        
+        // Add constraints for "About the flag" label
+        NSLayoutConstraint.activate([
+            aboutFlagLabel.topAnchor.constraint(equalTo: flagContainerView.bottomAnchor, constant: 20),
+            aboutFlagLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+        ])
+        
+        // Add label for flag information
+        flagInfoLabel = UILabel()
+        flagInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        flagInfoLabel.numberOfLines = 0 // Allow multiple lines
+        view.addSubview(flagInfoLabel)
+        
+        // Add constraints for flag information label
+        NSLayoutConstraint.activate([
+            flagInfoLabel.topAnchor.constraint(equalTo: aboutFlagLabel.bottomAnchor, constant: 10),
+            flagInfoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            flagInfoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+        
+        // Add gray line below flag information
+        grayLineView = UIView()
+        grayLineView.translatesAutoresizingMaskIntoConstraints = false
+        grayLineView.backgroundColor = .lightGray
+        view.addSubview(grayLineView)
+        
+        // Add constraints for gray line view
+        NSLayoutConstraint.activate([
+            grayLineView.topAnchor.constraint(equalTo: flagInfoLabel.bottomAnchor, constant: 10),
+            grayLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            grayLineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            grayLineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
@@ -89,4 +133,10 @@ class CountryDetailViewController: UIViewController {
         }
     }
     
+    func setupFlagInfo() {
+        // Set flag information text
+        flagInfoLabel.text = country?.flags.alt
+    }
+    
 }
+

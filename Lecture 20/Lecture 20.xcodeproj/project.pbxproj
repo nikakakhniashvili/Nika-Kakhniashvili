@@ -64,7 +64,6 @@
 			children = (
 				33F70BCE2BD6ED380044F8F6 /* App */,
 				33F70BD02BD6EDFD0044F8F6 /* VC */,
-				33F70BCF2BD6EDD70044F8F6 /* Model */,
 				33F70BBB2BD6B77F0044F8F6 /* Assets.xcassets */,
 				33F70BBD2BD6B77F0044F8F6 /* LaunchScreen.storyboard */,
 				33F70BC02BD6B77F0044F8F6 /* Info.plist */,
@@ -96,6 +95,7 @@
 				33F70BC62BD6B9F00044F8F6 /* Header.swift */,
 				33F70BB62BD6B77E0044F8F6 /* CountryListVC.swift */,
 				33F70BD22BD6FCA80044F8F6 /* CountryDetailsVC.swift */,
+				33F70BCF2BD6EDD70044F8F6 /* Model */,
 			);
 			path = VC;
 			sourceTree = "<group>";
