@@ -3,8 +3,7 @@
 //  Lecture 20
 //
 
-
-import UIKit
+import Foundation
 
 struct Country: Codable {
     let name: Name
@@ -12,11 +11,15 @@ struct Country: Codable {
 }
 
 struct Name: Codable {
-    let common: String
+    let common: String?
 }
 
 struct Flags: Codable {
     let png: String
+    let alt: String?
 }
+
+
+
 
 
