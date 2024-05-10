@@ -50,9 +50,9 @@ extension APIClient {
                         completion(Result.failure(error))
                     } else {
                         completion(Result.failure(.invalidData))
-                        }
-                    return
                     }
+                    return
+                }
                 
                 if let value = decode(json) {
                     completion(.success(value))
